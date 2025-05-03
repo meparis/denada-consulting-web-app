@@ -178,7 +178,7 @@ export default function WebAppServicePage() {
           )}
           {status === 'error' && (
             <p className="text-red-600 text-center mt-4">
-              Échec de l'envoi: {errorMessage || 'Veuillez réessayer.'}
+              Échec de l&apos;envoi: {errorMessage || 'Veuillez réessayer.'}
             </p>
           )}
         </form>
