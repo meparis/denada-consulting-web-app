@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from '@vercel/analytics/next';
 import { Poppins, Roboto } from "next/font/google"; // Import Poppins and Roboto
 import "./globals.css";
 
@@ -32,8 +33,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
-      <body className={`${poppins.variable} ${roboto.variable} font-sans`}> 
+      <body className={`${poppins.variable} ${roboto.variable} font-sans`}>
         {children}
+        <Analytics />
       </body>
     </html>
   );
