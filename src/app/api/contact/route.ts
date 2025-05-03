@@ -27,8 +27,13 @@ export async function POST(request: NextRequest) {
       Type de projet: ${validatedData.type}
       Détails: ${validatedData.details}
     `;
-    // Define the recipient email address
-    const recipientEmail = 'contact@denada-consulting.com'; // Replace with your target email
+    // Define the recipient email address from environment variable
+    const recipientEmail = process.env.CONTACT_MAIL;
+
+    if (!recipientEmail) {
+      console.error('Error: CONTACT_MAIL environment variable is not set.');
+      return NextResponse.json({ message: 'Server configuration error: Recipient email not set.' }, { status: 500 });
+    }
 
     // Send the email using the service (assuming 'fr' as default lang)
     await mailService.sendMail('fr', recipientEmail, subject, content);
