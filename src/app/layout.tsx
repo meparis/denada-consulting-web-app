@@ -31,9 +31,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr"> {/* Set language to French based on page.tsx content */}
-      {/* Apply font variables to the body */}
-      <body className={`${poppins.variable} ${roboto.variable} font-sans`}> {/* Use font-sans as default, Tailwind will use --font-roboto */}
+    <html lang="fr">
+      <body className={`${poppins.variable} ${roboto.variable} font-sans`}> 
         {children}
       </body>
     </html>
