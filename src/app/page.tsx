@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, FormEvent, useRef } from 'react';
+import React, { useState, FormEvent } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import Image from 'next/image';
 
@@ -295,7 +295,7 @@ export default function WebAppServicePage() {
               viewport={{ amount: 0.1 }}
               className="text-rose-600 font-medium text-center mt-4"
             >
-              Échec de l'envoi: {errorMessage || 'Veuillez réessayer.'}
+              Échec de l&apos;envoi: {errorMessage || 'Veuillez réessayer.'}
             </motion.p>
           )}
         </form>
