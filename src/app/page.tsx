@@ -1,6 +1,9 @@
+// src/app/page.tsx (Next.js 15+ with TypeScript)
+
 'use client';
 
 import React, { useState, FormEvent } from 'react';
+import { motion } from "motion/react";
 import Image from 'next/image';
 
 // For scroll animations, we'll use the library Framer Motion (https://www.framer.com/motion/)
@@ -58,7 +61,7 @@ export default function WebAppServicePage() {
     <main className="min-h-screen bg-slate-100 text-slate-800 font-roboto px-4 sm:px-6 lg:px-8 py-12">
       {/* Header for Logo */}
       <header className="max-w-5xl mx-auto mb-12 pb-8 border-b border-slate-300">
-        <div className="flex justify-center items-center"> 
+        <div className="flex justify-center items-center">
             <Image
             src="/logo_transparent_bg_cropped.png"
             alt="DeNada Consulting Logo"
