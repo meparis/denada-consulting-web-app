@@ -65,8 +65,8 @@ export default function WebAppServicePage() {
       <header className="max-w-5xl mx-auto mb-12 pb-8 border-b border-slate-300">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
+          whileInView={{ opacity: 1, y: 0 }} // Changed back from animate, exit prop removed
+          viewport={{ amount: 0.3 }}
           transition={{ duration: 0.6 }}
           className="flex justify-center items-center"
         >
@@ -83,8 +83,8 @@ export default function WebAppServicePage() {
       {/* Introduction Section */}
       <motion.section
         initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
+        whileInView={{ opacity: 1, y: 0 }} // Changed back from animate, exit prop removed
+        viewport={{ amount: 0.3 }}
         transition={{ duration: 0.7 }}
         className="max-w-3xl mx-auto mb-16 bg-white p-6 sm:p-10 rounded-xl shadow-xl"
       >
@@ -107,8 +107,8 @@ export default function WebAppServicePage() {
       {/* Avantages List */}
       <motion.section
         initial={{ opacity: 0, x: -50 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
+        whileInView={{ opacity: 1, x: 0 }} // Changed back from animate, exit prop removed
+        viewport={{ amount: 0.3 }}
         transition={{ duration: 0.6 }}
         className="max-w-3xl mx-auto mb-16 bg-white p-6 sm:p-10 rounded-xl shadow-xl"
       >
@@ -129,8 +129,8 @@ export default function WebAppServicePage() {
             <motion.li
               key={idx}
               initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
+              whileInView={{ opacity: 1, x: 0 }} // Changed back from animate, exit prop removed
+              viewport={{ amount: 0.2 }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
             >
               {item}
@@ -142,8 +142,8 @@ export default function WebAppServicePage() {
       {/* Mise à jour existant */}
       <motion.section
         initial={{ opacity: 0, x: 50 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
+        whileInView={{ opacity: 1, x: 0 }} // Changed back from animate, exit prop removed
+        viewport={{ amount: 0.3 }}
         transition={{ duration: 0.6 }}
         className="max-w-3xl mx-auto mb-16 bg-white p-6 sm:p-10 rounded-xl shadow-xl"
       >
@@ -165,8 +165,8 @@ export default function WebAppServicePage() {
             <motion.li
               key={idx}
               initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
+              whileInView={{ opacity: 1, x: 0 }} // Changed back from animate, exit prop removed
+              viewport={{ amount: 0.2 }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
             >
               {item}
@@ -178,8 +178,8 @@ export default function WebAppServicePage() {
       {/* Formulaire de contact animé */}
       <motion.section
         initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
+        whileInView={{ opacity: 1, y: 0 }} // Changed back from animate, exit prop removed
+        viewport={{ amount: 0.3 }}
         transition={{ duration: 0.7 }}
         className="max-w-2xl mx-auto bg-white p-6 sm:p-10 rounded-xl shadow-xl"
       >
@@ -194,8 +194,8 @@ export default function WebAppServicePage() {
             <motion.div
               key={field.id}
               initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
+              whileInView={{ opacity: 1, x: 0 }} // Changed back from animate, exit prop removed
+              viewport={{ amount: 0.2 }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
             >
               <label htmlFor={field.id} className="block text-sm font-medium text-slate-700 mb-1">
@@ -216,8 +216,8 @@ export default function WebAppServicePage() {
 
           <motion.div
             initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
+            whileInView={{ opacity: 1, x: 0 }} // Changed back from animate, exit prop removed
+            viewport={{ amount: 0.2 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             <label htmlFor="type" className="block text-sm font-medium text-slate-700 mb-1">
@@ -240,8 +240,8 @@ export default function WebAppServicePage() {
 
           <motion.div
             initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
+            whileInView={{ opacity: 1, x: 0 }} // Changed back from animate, exit prop removed
+            viewport={{ amount: 0.2 }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
             <label htmlFor="details" className="block text-sm font-medium text-slate-700 mb-1">
@@ -261,8 +261,8 @@ export default function WebAppServicePage() {
 
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
+            whileInView={{ opacity: 1, scale: 1 }} // Changed back from animate, exit prop removed
+            viewport={{ amount: 0.2 }} // Changed from viewport: {} to a specific amount
             transition={{ duration: 0.5, delay: 0.4 }}
           >
             <button
@@ -279,8 +279,9 @@ export default function WebAppServicePage() {
           {status === 'success' && (
             <motion.p
               initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
+              whileInView={{ opacity: 1 }} // Changed from animate to whileInView, exit prop removed
               transition={{ duration: 0.5, delay: 0.5 }}
+              viewport={{ amount: 0.1 }}
               className="text-emerald-600 font-medium text-center mt-4"
             >
               Votre demande a été envoyée avec succès !
@@ -289,8 +290,9 @@ export default function WebAppServicePage() {
           {status === 'error' && (
             <motion.p
               initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
+              whileInView={{ opacity: 1 }} // Changed from animate to whileInView, exit prop removed
               transition={{ duration: 0.5, delay: 0.5 }}
+              viewport={{ amount: 0.1 }}
               className="text-rose-600 font-medium text-center mt-4"
             >
               Échec de l'envoi: {errorMessage || 'Veuillez réessayer.'}
