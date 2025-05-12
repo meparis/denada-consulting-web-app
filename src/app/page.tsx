@@ -1,8 +1,13 @@
 'use client';
 
 import React, { useState, FormEvent } from 'react';
+import Image from 'next/image'; // Import the Image component
 // Remove MailService import if it's no longer directly used here
 // import { MailService } from '@/lib/MailServices';
+
+// For scroll animations, consider using libraries like Framer Motion (https://www.framer.com/motion/)
+// or AOS (Animate On Scroll - https://michalsnik.github.io/aos/).
+// You would typically wrap sections or elements with animation components/attributes from these libraries.
 
 export default function WebAppServicePage() {
   const [formData, setFormData] = useState({
@@ -54,25 +59,41 @@ export default function WebAppServicePage() {
     }
   };
   return (
-    <main className="min-h-screen bg-white text-gray-900 font-roboto p-8">
+    <main className="min-h-screen bg-slate-100 text-slate-800 font-roboto px-4 sm:px-6 lg:px-8 py-12">
+      {/* Header for Logo */}
+      <header className="max-w-5xl mx-auto mb-12 pb-8 border-b border-slate-300">
+        <div className="flex justify-center items-center"> {/* Modified for centering */}
+          {/* Replace with your actual logo path and dimensions */}
+            <Image
+            src="/logo_transparent_bg_cropped.png"
+            alt="DeNada Consulting Logo"
+            width={441}
+            height={186}
+            priority
+          />
+        </div>
+      </header>
+
       {/* Section d'introduction */}
-      <section className="max-w-3xl mx-auto mb-12">
-        <h1 className="text-4xl font-poppins font-bold text-blue-700 mb-4">Service de Création d’Applications Web</h1>
-        <p className="text-lg leading-relaxed mb-6">
-          Chez <span className="font-semibold text-blue-700">DeNada Consulting</span>, nous aidons les petites entreprises à se développer en ligne.
+      <section className="max-w-3xl mx-auto mb-16 bg-white p-6 sm:p-10 rounded-xl shadow-xl">
+        <h1 className="text-4xl sm:text-5xl font-poppins font-bold text-sky-600 mb-6 tracking-tight">
+          Service de Création d’Applications Web
+        </h1>
+        <p className="text-lg text-slate-700 leading-relaxed mb-6">
+          Chez <span className="font-bold text-sky-600">DeNada Consulting</span>, nous aidons les petites entreprises à se développer en ligne.
           Nous créons pour vous un site ou une application facile à gérer, qui attire de nouveaux clients,
           respecte la législation en vigueur et garantit l’accessibilité pour tous.
         </p>
-        <p className="text-base leading-relaxed">
+        <p className="text-base text-slate-600 leading-relaxed">
           Votre projet bénéficie d’une conception adaptée à votre activité, d’une visibilité améliorée sur Google,
           d’une interface disponible en plusieurs langues et d’un affichage optimal sur ordinateur et mobile.
         </p>
       </section>
 
       {/* Liste des avantages */}
-      <section className="max-w-3xl mx-auto mb-12">
-        <h2 className="text-2xl font-poppins font-semibold text-gray-800 mb-4">Pourquoi choisir notre service ?</h2>
-        <ul className="list-disc list-inside space-y-2 text-base leading-relaxed">
+      <section className="max-w-3xl mx-auto mb-16 bg-white p-6 sm:p-10 rounded-xl shadow-xl">
+        <h2 className="text-3xl font-poppins font-semibold text-slate-800 mb-6">Pourquoi choisir notre service ?</h2>
+        <ul className="list-disc list-inside space-y-3 text-slate-600 leading-relaxed">
           <li>Solution clé en main, sans compétence technique requise</li>
           <li>Visibilité renforcée : nous optimisons votre site pour Google</li>
           <li>Multilingue : touchez une clientèle plus large</li>
@@ -85,12 +106,12 @@ export default function WebAppServicePage() {
       </section>
 
             {/* Mise à jour de sites existants */}
-      <section className="max-w-3xl mx-auto mb-12">
-        <h2 className="text-2xl font-poppins font-semibold text-gray-800 mb-4">Mise à jour et amélioration de vos solutions existantes</h2>
-        <p className="text-base leading-relaxed mb-4">
+      <section className="max-w-3xl mx-auto mb-16 bg-white p-6 sm:p-10 rounded-xl shadow-xl">
+        <h2 className="text-3xl font-poppins font-semibold text-slate-800 mb-6">Mise à jour et amélioration de vos solutions existantes</h2>
+        <p className="text-base text-slate-600 leading-relaxed mb-4">
           Vous disposez déjà d’un site ou d’une application ? Nous assurons :
         </p>
-        <ul className="list-disc list-inside space-y-2 text-base leading-relaxed mb-8">
+        <ul className="list-disc list-inside space-y-3 text-slate-600 leading-relaxed mb-8">
           <li>Audit complet pour identifier les axes d’amélioration</li>
           <li>Mise à jour graphique et ergonomique</li>
           <li>Optimisation SEO et performance</li>
@@ -98,15 +119,14 @@ export default function WebAppServicePage() {
           <li>Conformité RGPD et accessibilité WCAG</li>
           <li>Support et maintenance continue</li>
         </ul>
-      </section> {/* Add closing tag here */}
+      </section>
 
       {/* Formulaire de contact */}
-      <section className="max-w-2xl mx-auto bg-gray-50 p-8 rounded-lg shadow-md">
-        <h2 className="text-2xl font-poppins font-semibold text-gray-800 mb-6">Parlez-nous de votre projet</h2>
-        {/* Add onSubmit handler */}
-        <form onSubmit={handleSubmit} className="space-y-4">
+      <section className="max-w-2xl mx-auto bg-white p-6 sm:p-10 rounded-xl shadow-xl">
+        <h2 className="text-3xl font-poppins font-semibold text-slate-800 mb-8 text-center">Parlez-nous de votre projet</h2>
+        <form onSubmit={handleSubmit} className="space-y-6">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1" htmlFor="name">Nom</label>
+            <label className="block text-sm font-medium text-slate-700 mb-1" htmlFor="name">Nom</label>
             <input
               type="text"
               id="name"
@@ -115,11 +135,11 @@ export default function WebAppServicePage() {
               value={formData.name}
               onChange={handleChange}
               required
-              className="w-full border-gray-300 rounded-md shadow-sm focus:ring-cyan-400 focus:border-cyan-400"
+              className="w-full border-slate-300 rounded-lg shadow-sm focus:ring-sky-500 focus:border-sky-500 py-2.5 px-3.5 bg-slate-50 focus:bg-white transition-colors"
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1" htmlFor="email">Adresse e-mail</label>
+            <label className="block text-sm font-medium text-slate-700 mb-1" htmlFor="email">Adresse e-mail</label>
             <input
               type="email"
               id="email"
@@ -128,18 +148,18 @@ export default function WebAppServicePage() {
               value={formData.email}
               onChange={handleChange}
               required
-              className="w-full border-gray-300 rounded-md shadow-sm focus:ring-cyan-400 focus:border-cyan-400"
+              className="w-full border-slate-300 rounded-lg shadow-sm focus:ring-sky-500 focus:border-sky-500 py-2.5 px-3.5 bg-slate-50 focus:bg-white transition-colors"
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1" htmlFor="type">Type de projet</label>
+            <label className="block text-sm font-medium text-slate-700 mb-1" htmlFor="type">Type de projet</label>
             <select
               id="type"
               name="type"
               value={formData.type}
               onChange={handleChange}
               required
-              className="w-full border-gray-300 rounded-md shadow-sm focus:ring-cyan-400 focus:border-cyan-400"
+              className="w-full border-slate-300 rounded-lg shadow-sm focus:ring-sky-500 focus:border-sky-500 py-2.5 px-3.5 bg-slate-50 focus:bg-white transition-colors"
             >
               <option>Site vitrine (présentation de votre activité)</option>
               <option>E-commerce (vente en ligne)</option>
@@ -148,7 +168,7 @@ export default function WebAppServicePage() {
             </select>
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1" htmlFor="details">Détails</label>
+            <label className="block text-sm font-medium text-slate-700 mb-1" htmlFor="details">Détails</label>
             <textarea
               id="details"
               name="details"
@@ -157,16 +177,16 @@ export default function WebAppServicePage() {
               value={formData.details}
               onChange={handleChange}
               required
-              className="w-full border-gray-300 rounded-md shadow-sm focus:ring-cyan-400 focus:border-cyan-400"
+              className="w-full border-slate-300 rounded-lg shadow-sm focus:ring-sky-500 focus:border-sky-500 py-2.5 px-3.5 bg-slate-50 focus:bg-white transition-colors"
             ></textarea>
           </div>
           <button
             type="submit"
             disabled={status === 'loading'}
-            className={`w-full py-3 font-poppins font-semibold rounded-md text-white transition ${
+            className={`w-full py-3 font-poppins font-semibold rounded-lg text-white transition-all duration-300 ease-in-out transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500 ${
               status === 'loading'
-                ? 'bg-gray-400 cursor-not-allowed'
-                : 'bg-cyan-400 hover:bg-cyan-500'
+                ? 'bg-slate-400 cursor-not-allowed'
+                : 'bg-sky-500 hover:bg-sky-600 shadow-md hover:shadow-lg'
             }`}
           >
             {status === 'loading' ? 'Envoi en cours...' : 'Demander un devis gratuit'}
@@ -174,10 +194,10 @@ export default function WebAppServicePage() {
 
           {/* Display status messages */}
           {status === 'success' && (
-            <p className="text-green-600 text-center mt-4">Votre demande a été envoyée avec succès !</p>
+            <p className="text-emerald-600 font-medium text-center mt-4">Votre demande a été envoyée avec succès !</p>
           )}
           {status === 'error' && (
-            <p className="text-red-600 text-center mt-4">
+            <p className="text-rose-600 font-medium text-center mt-4">
               Échec de l&apos;envoi: {errorMessage || 'Veuillez réessayer.'}
             </p>
           )}
